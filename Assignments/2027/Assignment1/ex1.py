@@ -3475,7 +3475,9 @@ class LogisticsProblem(search.Problem):
 
 
 def create_logistics_problem(game):
-    """Create a logistics problem from the initial state dictionary."""
+    print("<<create_logistics_problem")
+    """ Create a logistics problem, based on the description.
+    game - dictionary as described in pdf file"""
     return LogisticsProblem(game)
 
 
