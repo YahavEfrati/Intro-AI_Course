@@ -1,0 +1,93 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["6a6f5cb453312bc4.olean"],
+  "m": false,
+  "i": "f663716417668f9b.ilean",
+  "c": "52c74593aa028b7a.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean /home/yahav/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/PackingAndFlux.lean -o /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/PackingAndFlux.olean -i /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/PackingAndFlux.ilean -c /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/PackingAndFlux.c --setup /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/PackingAndFlux.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "PackingAndFlux.lean:584:66: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:590:66: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:681:18: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:682:18: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:684:18: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw, hnot]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:686:18: This simp argument is unused:\n  hm\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw, hle']\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:795:88: This simp argument is unused:\n  hu\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:824:88: This simp argument is unused:\n  hu\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:852:46: This simp argument is unused:\n  hu\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1317:17: This simp argument is unused:\n  ha\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hb, Bool.true_and, Bool.false_and, Bool.not_true, Bool.not_false, Bool.false_eq_true,\n    ↓reduceIte] at h1 h2 ⊢\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1636:23: This simp argument is unused:\n  hc\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcr, decide_false, Bool.and_false, Bool.false_and, Bool.false_eq_true, ↓reduceIte, finSum_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1660:94: This simp argument is unused:\n  hd\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hc, ha, hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1704:23: This simp argument is unused:\n  hc\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcr, decide_false, Bool.and_false, Bool.false_and, Bool.false_eq_true, ↓reduceIte, finSum_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1728:94: This simp argument is unused:\n  hd\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hc, ha, hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1791:34: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcond, Bool.false_and]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1817:61: This simp argument is unused:\n  hd\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw, hc, ha, hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1824:25: This simp argument is unused:\n  hc\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcr, decide_true, Bool.and_self, ↓reduceIte]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1860:34: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcond, Bool.false_and]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1886:61: This simp argument is unused:\n  hd\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hw, hc, ha, hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PackingAndFlux.lean:1893:25: This simp argument is unused:\n  hc\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcr, decide_true, Bool.and_self, ↓reduceIte]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"}],
+ "inputs":
+ [["deps",
+   [["island_logistics_proof/PackingAndFlux:extraDep",
+     [["@island_logistics_proof:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["Domain transitive imports (legacy)", "00000000000006bb"],
+      ["Domain:importAllArts", "8f7ad15cd623949c"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+   "bd5dd4b1191d6a49"],
+  ["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/PackingAndFlux.lean",
+   "6c8580b3e8ab47a2"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: PackingAndFlux", "18ff31a76af6d34e"],
+  ["Package.id?: (some island_logistics_proof)", "c631b5ca8779cf5f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "b28822ddb78c4841"}

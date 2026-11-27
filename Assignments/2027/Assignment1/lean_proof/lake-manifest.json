@@ -1,0 +1,6 @@
+{"version": "1.3.0",
+ "packagesDir": ".lake/packages",
+ "packages": [],
+ "name": "island_logistics_proof",
+ "lakeDir": ".lake",
+ "fixedToolchain": false}

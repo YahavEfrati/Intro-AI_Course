@@ -1,0 +1,137 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["b76ed184843df523.olean"],
+  "m": false,
+  "i": "99ff5b1be8a45c49.ilean",
+  "c": "9a93c10f04d47c21.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean /home/yahav/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/Main.lean -o /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Main.olean -i /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Main.ilean -c /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/Main.c --setup /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/Main.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "Main.lean:268:0: 'IslandLogistics.h_astar_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:271:0: 'IslandLogistics.planCost_partition' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:272:0: 'IslandLogistics.master_combination' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:275:0: 'IslandLogistics.subsetWeight_undeliv_le_dynEffCap' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:276:0: 'IslandLogistics.truck_subset_dynEffCap_le_topKSum' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:277:0: 'IslandLogistics.packLB_plan_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:278:0: 'IslandLogistics.fluxLB_plan_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:281:0: 'IslandLogistics.h_bridge_base_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:282:0: 'IslandLogistics.bridge_cycle_extra_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:283:0: 'IslandLogistics.nb_pack_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:284:0: 'IslandLogistics.nb_mst_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:285:0: 'IslandLogistics.nb_two_supernode_sound' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:286:0: 'IslandLogistics.h_drive_combination' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:289:0: 'IslandLogistics.cutFerry_parity_msf_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:290:0: 'IslandLogistics.cutFerry_multiway_sail_sum' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:291:0: 'IslandLogistics.cutFerry_zx_split_algebra' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:292:0: 'IslandLogistics.frozenFlips_le_truckBD' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:293:0: 'IslandLogistics.frozenFlips_firstDisembark_cur' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:294:0: 'IslandLogistics.b2_le_boardCount' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:295:0: 'IslandLogistics.d2_le_disembarkCount' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:296:0: 'IslandLogistics.b4_le_loadedInterSailCount' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:297:0: 'IslandLogistics.b5_le_loadedInterSailCount' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:298:0: 'IslandLogistics.empty_positioning_extra_sail' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:299:0: 'IslandLogistics.island_ro_ri_sound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:300:0: 'IslandLogistics.island_sail_disjoint_bounds' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:301:0: 'IslandLogistics.sum_loadedIslSail_eq' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:304:0: 'IslandLogistics.hLU_le_costLU' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:305:0: 'IslandLogistics.hPackTruck_le_drive_add_bd' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:306:0: 'IslandLogistics.hSingle_le_costMove' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:307:0: 'IslandLogistics.excl_heavy_sum_le_costMove' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:308:0: 'IslandLogistics.excl_heavy_with_app_le_costMove' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "Main.lean:309:0: 'IslandLogistics.exclTspLB_le_costMove' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["island_logistics_proof/Main:extraDep",
+     [["@island_logistics_proof:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["Domain transitive imports (legacy)", "00000000000006bb"],
+      ["Domain:importAllArts", "8f7ad15cd623949c"],
+      ["PackingAndFlux transitive imports (legacy)", "b5adcbaf992fce72"],
+      ["PackingAndFlux:importAllArts", "3c1c3a0b448386fa"],
+      ["BridgesAndCycles transitive imports (legacy)", "9bd4be6eb26f2b1c"],
+      ["BridgesAndCycles:importAllArts", "6a4bf8b1a819b72e"],
+      ["Ferries transitive imports (legacy)", "114b6441fdf003a5"],
+      ["Ferries:importAllArts", "bc7ef23f0542e41b"],
+      ["SingleAndExclusive transitive imports (legacy)", "114b6441fdf003a5"],
+      ["SingleAndExclusive:importAllArts", "ad16385cfed2e234"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+   "bd5dd4b1191d6a49"],
+  ["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/Main.lean",
+   "b9408474f5ff89b0"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: Main", "f2a1fd945cf30c62"],
+  ["Package.id?: (some island_logistics_proof)", "c631b5ca8779cf5f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "03ed251f1606ab22"}

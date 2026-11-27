@@ -1,0 +1,76 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["946c417e0dfcdf18.olean"],
+  "m": false,
+  "i": "07381a27c43886eb.ilean",
+  "c": "0e542993cc2a14bb.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean /home/yahav/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/Ferries.lean -o /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Ferries.olean -i /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Ferries.ilean -c /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/Ferries.c --setup /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/Ferries.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "Ferries.lean:621:5: Variable name `hgcd` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hgcd\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1175:26: This simp argument is unused:\n  sumTake\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1255:44: Variable name `need_cur` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _need_cur\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1255:53: Variable name `need_opp` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _need_opp\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1707:23: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hc, Nat.zero_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1708:24: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcb] at ih\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1765:23: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hc, Nat.zero_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:1765:66: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hcb] at ih\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:2387:48: This simp argument is unused:\n  hdel\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hgp, G.minSails_self]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:2391:39: This simp argument is unused:\n  hh\n\nHint: Omit it from the simp argument list.\n  [apply] simp [hgp, G.minSails_self]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:2402:29: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hinter, Nat.mul_add, Nat.mul_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:2402:54: This simp argument is unused:\n  Nat.mul_one\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hinter, ↓reduceIte, Nat.mul_add]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "Ferries.lean:3019:74: `if_pos` has been deprecated: Use `ite_eq_left` instead\n\nHint: Replace the deprecated name:\n  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲",
+   "level": "warning"}],
+ "inputs":
+ [["deps",
+   [["island_logistics_proof/Ferries:extraDep",
+     [["@island_logistics_proof:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["Domain transitive imports (legacy)", "00000000000006bb"],
+      ["Domain:importAllArts", "8f7ad15cd623949c"],
+      ["PackingAndFlux transitive imports (legacy)", "b5adcbaf992fce72"],
+      ["PackingAndFlux:importAllArts", "3c1c3a0b448386fa"],
+      ["BridgesAndCycles transitive imports (legacy)", "9bd4be6eb26f2b1c"],
+      ["BridgesAndCycles:importAllArts", "6a4bf8b1a819b72e"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+   "bd5dd4b1191d6a49"],
+  ["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/Ferries.lean",
+   "8383e38f6893b9a6"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: Ferries", "e446a7bc9054def7"],
+  ["Package.id?: (some island_logistics_proof)", "c631b5ca8779cf5f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "af7acb4787ed3183"}

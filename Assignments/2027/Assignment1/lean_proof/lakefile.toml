@@ -1,0 +1,21 @@
+name = "island_logistics_proof"
+version = "0.1.0"
+defaultTargets = ["Domain", "PackingAndFlux", "BridgesAndCycles", "Ferries", "SingleAndExclusive", "Main"]
+
+[[lean_lib]]
+name = "Domain"
+
+[[lean_lib]]
+name = "PackingAndFlux"
+
+[[lean_lib]]
+name = "BridgesAndCycles"
+
+[[lean_lib]]
+name = "Ferries"
+
+[[lean_lib]]
+name = "SingleAndExclusive"
+
+[[lean_lib]]
+name = "Main"

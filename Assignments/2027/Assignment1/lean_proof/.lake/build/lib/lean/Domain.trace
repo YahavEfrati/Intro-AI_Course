@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["9a7fdd06a4378042.olean"],
+  "m": false,
+  "i": "a6e55e40c79a9d9f.ilean",
+  "c": "e9d4a376e40caa66.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean /home/yahav/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/Domain.lean -o /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Domain.olean -i /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Domain.ilean -c /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/Domain.c --setup /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/Domain.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["deps",
+   [["island_logistics_proof/Domain:extraDep",
+     [["@island_logistics_proof:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+   "bd5dd4b1191d6a49"],
+  ["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/Domain.lean",
+   "da09f12666e67faf"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: Domain", "04446c2e7e281d3f"],
+  ["Package.id?: (some island_logistics_proof)", "c631b5ca8779cf5f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "33619057d05b1aa8"}

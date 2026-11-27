@@ -1,0 +1,77 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["8d89037a10f6b52c.olean"],
+  "m": false,
+  "i": "193247d628f5a2b9.ilean",
+  "c": "6d43147213e9cbd4.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean /home/yahav/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/BridgesAndCycles.lean -o /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/BridgesAndCycles.olean -i /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/BridgesAndCycles.ilean -c /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/BridgesAndCycles.c --setup /home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/ir/BridgesAndCycles.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "BridgesAndCycles.lean:675:17: This simp argument is unused:\n  Nat.zero_add\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [stateAt_succ, stateAt_zero, ← hsb_eq]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:675:45: This simp argument is unused:\n  stateAt_zero\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Nat.zero_add, stateAt_succ, ← hsb_eq]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:1781:29: This simp argument is unused:\n  hpu\n\nHint: Omit it from the simp argument list.\n  [apply] simp only\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:1783:21: This simp argument is unused:\n  hpu\n\nHint: Omit it from the simp argument list.\n  [apply] simp only\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:1988:5: Variable name `htime_le` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _htime_le\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2063:27: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hx] at hu\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2078:27: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hx] at hst\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2094:29: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hx] at hle_acc\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2104:33: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hjcond] at hle_acc\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2310:31: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hx] at hb\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2324:31: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hx] at hst\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2338:33: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hx] at hle_acc\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2345:65: This simp argument is unused:\n  ↓reduceIte\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hjc] at hle_acc\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "BridgesAndCycles.lean:2647:23: Variable name `hr_ne` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hr_ne\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"}],
+ "inputs":
+ [["deps",
+   [["island_logistics_proof/BridgesAndCycles:extraDep",
+     [["@island_logistics_proof:extraDep", "00000000000006bb"]]],
+    ["imports",
+     [["Domain transitive imports (legacy)", "00000000000006bb"],
+      ["Domain:importAllArts", "8f7ad15cd623949c"],
+      ["PackingAndFlux transitive imports (legacy)", "b5adcbaf992fce72"],
+      ["PackingAndFlux:importAllArts", "3c1c3a0b448386fa"]]]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+   "bd5dd4b1191d6a49"],
+  ["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/BridgesAndCycles.lean",
+   "d638480362928239"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: BridgesAndCycles", "1a2e397afba8442e"],
+  ["Package.id?: (some island_logistics_proof)", "c631b5ca8779cf5f"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "271ae25b28a9f945"}

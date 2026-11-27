@@ -217,8 +217,9 @@ class LogisticsProblem(search.Problem):
                 active_served.append(())
 
         no_enter = list(dead)
+        init_f_ports = set(init_f)
         for v in range(n):
-            if not no_enter[v] and not rel[v] and not self.roads[v]:
+            if not no_enter[v] and not rel[v] and not self.roads[v] and v not in init_f_ports:
                 fl = f_at_p[v]
                 if not fl:
                     no_enter[v] = True
@@ -349,13 +350,6 @@ class LogisticsProblem(search.Problem):
         # 6. Road-only islands, inter-island ferry graph, bridges & contracted non-bridge metric
         self.island_of, self.num_islands = _components(self.roads)
         self.pkg_goal_islands = tuple(self.island_of[g] for g in self.pkg_goals)
-        self.road_dist = _apsp_bfs(self.roads)
-
-        isl_all_f = [set() for _ in range(self.num_islands)]
-        for fi in self.active_ferry_indices:
-            for p in active_served[fi]:
-                isl_all_f[self.island_of[p]].add(fi)
-        self.isl_sole_ferry = tuple(next(iter(fs)) if len(fs) == 1 else -1 for fs in isl_all_f)
 
         eff_desc = sorted(self.eff_truck_caps, reverse=True)
         self.max_ferry_weight = tuple(sum(eff_desc[: min(self.ferry_caps[fi], self.num_trucks)]) for fi in range(self.num_ferries))
@@ -461,7 +455,7 @@ class LogisticsProblem(search.Problem):
         """Precompute compressed G_rf road bridges (oriented along path) & contracted nb metric."""
         n, rf_adj, comp_of = self.num_locations, self._rf_adj, self.comp_of
         road_edges = [(u, v) for u in range(n) for v in self.roads[u] if u < v]
-        bridges, bset, e2b, isl_hb = [], set(), {}, [False] * self.num_islands
+        bridges, bset, e2b = [], set(), {}
         for u, v in road_edges:
             if any(u in active_served[fi] and v in active_served[fi] for fi in self.active_ferry_indices):
                 continue
@@ -479,8 +473,6 @@ class LogisticsProblem(search.Problem):
                 e2b[(u, v)] = e2b[(v, u)] = len(bridges)
                 bridges.append((u, v, side, cid))
                 bset.update(((u, v), (v, u)))
-                isl_hb[self.island_of[u]] = True
-        self.isl_has_bridge = tuple(isl_hb)
 
         used, chains, pc = [False] * len(bridges), [], self.pure_corridor
         for bi, (u, v, _, cid) in enumerate(bridges):
@@ -892,23 +884,23 @@ class LogisticsProblem(search.Problem):
             cache[ckey] = res
         return res
 
-    def _eval_cut_ferries(self, pkg_info, t_rep, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw, h_nb):
-        """Return (bd_cut_sum, sail_cut_sum, approach_trade_extra) across inter-island cut ferries."""
+    def _eval_cut_ferries(self, pkg_info, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw):
+        """Return (bd_cut_sum, sail_cut_sum) across inter-island cut ferries."""
         num_trucks, isl_of, f_caps = self.num_trucks, self.island_of, self.ferry_caps
         half_cap, cap_m1 = max_cap >> 1, max_cap - 1
-        bd_cut = b7 = trade_extra = 0
+        bd_cut = b7 = 0
 
         for fi, touched_in, in_comp in self.cut_ferries:
             cf, ft = max_fw[fi], f_caps[fi]
             if cf <= 0 or ft <= 0:
                 continue
-            cf_m1, p0 = cf - 1, ferry_locs[fi]
-            f_isl = isl_of[p0]
+            cf_m1 = cf - 1
+            f_isl = isl_of[ferry_locs[fi]]
             ab_trucks = [ti for ti in range(num_trucks) if t_on_f[ti] == fi]
             ab_c = len(ab_trucks)
             two_w = len(touched_in) == 2
             sides = (touched_in[0],) if two_w else touched_in
-            sof = sif = msf = best_bd = cur_so = cur_si = cur_sf = 0
+            sof = sif = msf = best_bd = 0
 
             for in_h in sides:
                 fi_in = in_h[f_isl]
@@ -993,12 +985,9 @@ class LogisticsProblem(search.Problem):
                     if fi_in:
                         se = soh + 1 if (mh == 0 and soh > 0) else soh
                         sf = (se if se >= sih else sih) + (sih if sih >= se - 1 else se - 1)
-                        cur_so, cur_si, cur_sf = soh, sih, sf
                     else:
                         se = sih + 1 if (mo == 0 and sih > 0) else sih
                         sf = (soh if soh >= se - 1 else se - 1) + (se if se >= soh else soh)
-                        if two_w:
-                            cur_so, cur_si, cur_sf = sih, soh, sf
                     if sf > msf:
                         msf = sf
 
@@ -1039,72 +1028,12 @@ class LogisticsProblem(search.Problem):
             if msf > sails_f:
                 sails_f = msf
 
-            # General docked cut-ferry zero-extra-sail trade-off on a sole-ferry non-bridge island:
-            # Either fi executes >= sails_f + 1 sails (+3), or fi executes strictly sails_f
-            # inter-island sails with 0 intra-island sails (forcing road drives on f_isl).
-            if ab_c == 0 and cur_sf == sails_f and self.isl_sole_ferry[f_isl] == fi and not self.isl_has_bridge[f_isl]:
-                rd = self.road_dist
-                g_trucks = [t_rep[ti] for ti in range(num_trucks) if t_on_f[ti] < 0 and t_isl[ti] == f_isl]
-                if g_trucks:
-                    if cur_so >= 1 and cur_so >= cur_si and p0 not in g_trucks:
-                        d_row, d_min = rd[p0], _INF
-                        for tl in g_trucks:
-                            if d_row[tl] < d_min:
-                                d_min = d_row[tl]
-                        if d_min < _INF:
-                            # Disjoint-in-time: any grounded intra-island pkg at p0 can only be
-                            # moved AFTER a truck first drives >= d_min to reach p0.
-                            p0_intra = 0
-                            for _, pl, gl, _, is_gnd, _, pi_s, gi_s, _ in pkg_info:
-                                if is_gnd and pl == p0 and gi_s == f_isl and d_row[gl] < _INF and d_row[gl] > p0_intra:
-                                    p0_intra = d_row[gl]
-                            req_rd = d_min + p0_intra
-                            if req_rd > h_nb:
-                                tr = 3 if req_rd - h_nb >= 3 else req_rd - h_nb
-                                if tr > trade_extra:
-                                    trade_extra = tr
-                    if cur_si == 0 and cur_so <= 1 and trade_extra < 3:
-                        # Collect required nodes on f_isl without set allocations for small islands
-                        isl_req = [p0] if cur_so == 1 else []
-                        for _, pl, gl, _, is_gnd, _, pi_s, gi_s, _ in pkg_info:
-                            if gi_s == f_isl and gl not in isl_req:
-                                isl_req.append(gl)
-                            if is_gnd and pi_s == f_isl and pl not in isl_req:
-                                isl_req.append(pl)
-                        if isl_req:
-                            g_rows = [rd[tl] for tl in g_trucks]
-                            best_rd = _mst_cost(isl_req, rd, g_rows)
-                        else:
-                            best_rd = 0
-                        if cur_so == 1:
-                            d_p0, capable = rd[p0], self.capable_trucks
-                            for pi, pl, _, cl, is_gnd, _, pi_s, gi_s, _ in pkg_info:
-                                if pi_s != f_isl or gi_s == f_isl:
-                                    continue
-                                if is_gnd:
-                                    dtf = d_p0[pl]
-                                    if dtf < _INF:
-                                        mp = _INF
-                                        for ti in capable[pi]:
-                                            if t_on_f[ti] < 0 and t_isl[ti] == f_isl and rd[t_rep[ti]][pl] < mp:
-                                                mp = rd[t_rep[ti]][pl]
-                                        if mp < _INF and mp + dtf > best_rd:
-                                            best_rd = mp + dtf
-                                else:
-                                    dtf = d_p0[cl]
-                                    if dtf < _INF and dtf > best_rd:
-                                        best_rd = dtf
-                        if best_rd > h_nb:
-                            tr = 3 if best_rd - h_nb >= 3 else best_rd - h_nb
-                            if tr > trade_extra:
-                                trade_extra = tr
-
             bd_cut += best_bd
             b7 += sails_f
-        return bd_cut, b7, trade_extra
+        return bd_cut, b7
 
-    def _eval_island_ferries(self, pkg_info, t_rep, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw, max_isl_sw, max_gfw, h_bridge, h_nb):
-        """Return (h_bd, h_sail, h_trade) for maps with non-cut (cyclic) inter-island ferries."""
+    def _eval_island_ferries(self, pkg_info, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw, max_isl_sw, max_gfw):
+        """Return (h_bd, h_sail) for maps with non-cut (cyclic) inter-island ferries."""
         ni, num_trucks = self.num_islands, self.num_trucks
         isl_of, isl_f, isl_ftcap = self.island_of, self.island_ferries, self.max_island_ferry_truck_cap
         cap_m1, half_cap, diam_one = max_cap - 1, max_cap >> 1, self.island_diam_one
@@ -1284,15 +1213,13 @@ class LogisticsProblem(search.Problem):
             lb_b = lb_d - n_ab
         h_bd = lb_b + lb_d
 
-        b7 = h_trade = 0
+        b7 = 0
         if self.cut_ferries:
-            bd_c, b7, tr_ex = self._eval_cut_ferries(
-                pkg_info, t_rep, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw, h_nb,
+            bd_c, b7 = self._eval_cut_ferries(
+                pkg_info, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw,
             )
             if bd_c > h_bd:
                 h_bd = bd_c
-            if tr_ex > 0:
-                h_trade = h_bridge + h_nb + h_bd + 3 * b7 + tr_ex
 
         vol = sum_so if sum_so >= sum_si else sum_si
         if not diam_one:
@@ -1316,7 +1243,7 @@ class LogisticsProblem(search.Problem):
             ms_cnt = b3
         if b7 > ms_cnt:
             ms_cnt = b7
-        return h_bd, 3 * ms_cnt, h_trade
+        return h_bd, 3 * ms_cnt
 
     @staticmethod
     def _bridge_cycle_extra(unit_regions, pkg_info):
@@ -1388,7 +1315,7 @@ class LogisticsProblem(search.Problem):
         100% admissible integer heuristic over pairwise disjoint action sets:
           A_LU = {LOAD, UNLOAD}, A_drive = {DRIVE}, A_bd = {BOARD, DISEMBARK}, A_sail = {SAIL}.
           h_truck = max(h_drive + h_bd, h_pack_truck)
-          h_move  = max(h_truck + h_sail, h_excl, h_trade, h_single)
+          h_move  = max(h_truck + h_sail, h_excl, h_single)
           return h_lu + h_move
         """
         state = node.state
@@ -1681,19 +1608,17 @@ class LogisticsProblem(search.Problem):
         h_drive = h_bridge + h_nb
 
         # 5. Bound C (cont.): h_bd (A_bd) & h_sail (A_sail)
-        h_bd = h_sail = h_trade = 0
+        h_bd = h_sail = 0
         if self.has_inter_island_ferries:
             if self.all_inter_ferries_are_cuts:
-                h_bd, b7, tr_ex = self._eval_cut_ferries(
-                    pkg_info, t_rep, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw, h_nb,
+                h_bd, b7 = self._eval_cut_ferries(
+                    pkg_info, ferry_locs, t_isl, t_on_f, eff_caps, max_cap, max_fw,
                 )
                 h_sail = 3 * b7
-                if tr_ex > 0:
-                    h_trade = h_drive + h_bd + h_sail + tr_ex
             else:
-                h_bd, h_sail, h_trade = self._eval_island_ferries(
-                    pkg_info, t_rep, ferry_locs, t_isl, t_on_f,
-                    eff_caps, max_cap, max_fw, max_isl_sw, max_gfw, h_bridge, h_nb,
+                h_bd, h_sail = self._eval_island_ferries(
+                    pkg_info, ferry_locs, t_isl, t_on_f,
+                    eff_caps, max_cap, max_fw, max_isl_sw, max_gfw,
                 )
 
         # 6. Final Admissible Combination + gated h_single
@@ -1704,8 +1629,6 @@ class LogisticsProblem(search.Problem):
         h_move = h_truck + h_sail
         if h_excl > h_move:
             h_move = h_excl
-        if h_trade > h_move:
-            h_move = h_trade
 
         if h_move < self.max_single_ub:
             capable, max_to_loc = self.capable_trucks, self.max_to_loc
@@ -1733,6 +1656,7 @@ class LogisticsProblem(search.Problem):
 
 
 def create_logistics_problem(game):
+    print("<<create_logistics_problem")
     """Create a logistics problem from the game dictionary."""
     return LogisticsProblem(game)
 

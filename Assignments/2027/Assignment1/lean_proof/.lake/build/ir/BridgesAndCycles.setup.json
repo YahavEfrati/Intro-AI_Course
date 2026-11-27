@@ -1,0 +1,11 @@
+{"plugins": [],
+ "package": "island_logistics_proof",
+ "options": {},
+ "name": "BridgesAndCycles",
+ "isModule": false,
+ "importArts":
+ {"PackingAndFlux":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/PackingAndFlux.olean"]],
+  "Domain":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Domain.olean"]]},
+ "dynlibs": []}

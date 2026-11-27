@@ -1,0 +1,17 @@
+{"plugins": [],
+ "package": "island_logistics_proof",
+ "options": {},
+ "name": "Main",
+ "isModule": false,
+ "importArts":
+ {"SingleAndExclusive":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/SingleAndExclusive.olean"]],
+  "PackingAndFlux":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/PackingAndFlux.olean"]],
+  "Ferries":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Ferries.olean"]],
+  "Domain":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Domain.olean"]],
+  "BridgesAndCycles":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/BridgesAndCycles.olean"]]},
+ "dynlibs": []}

@@ -1,0 +1,9 @@
+{"plugins": [],
+ "package": "island_logistics_proof",
+ "options": {},
+ "name": "PackingAndFlux",
+ "isModule": false,
+ "importArts":
+ {"Domain":
+  [["/home/yahav/BIU/BinaAI/Intro-AI_Course/Assignments/2027/Assignment1/lean_proof/.lake/build/lib/lean/Domain.olean"]]},
+ "dynlibs": []}
